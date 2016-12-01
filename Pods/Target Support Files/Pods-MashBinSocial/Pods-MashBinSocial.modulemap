@@ -1,0 +1,6 @@
+framework module Pods_MashBinSocial {
+  umbrella header "Pods-MashBinSocial-umbrella.h"
+
+  export *
+  module * { export * }
+}
