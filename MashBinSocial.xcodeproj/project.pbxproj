@@ -13,6 +13,11 @@
 		A694151A1DF0299B009D1DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69415191DF0299B009D1DA8 /* Assets.xcassets */; };
 		A694151D1DF0299B009D1DA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A694151B1DF0299B009D1DA8 /* LaunchScreen.storyboard */; };
 		A69415251DF02A5B009D1DA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A69415241DF02A5B009D1DA8 /* GoogleService-Info.plist */; };
+		A694152A1DF1A7FA009D1DA8 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415291DF1A7FA009D1DA8 /* CustomView.swift */; };
+		A694152D1DF1A8FD009D1DA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A694152C1DF1A8FD009D1DA8 /* Constants.swift */; };
+		A694152F1DF1AC59009D1DA8 /* RoundedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A694152E1DF1AC59009D1DA8 /* RoundedBtn.swift */; };
+		A69415311DF1B041009D1DA8 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415301DF1B041009D1DA8 /* CustomField.swift */; };
+		A69415331DF1B262009D1DA8 /* CustomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415321DF1B262009D1DA8 /* CustomBtn.swift */; };
 		CBD9FF9F2D0CBB63E000297E /* Pods_MashBinSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6582A7376951987EF5F1C8 /* Pods_MashBinSocial.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +33,11 @@
 		A694151C1DF0299B009D1DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A694151E1DF0299B009D1DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A69415241DF02A5B009D1DA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A69415291DF1A7FA009D1DA8 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		A694152C1DF1A8FD009D1DA8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A694152E1DF1AC59009D1DA8 /* RoundedBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedBtn.swift; sourceTree = "<group>"; };
+		A69415301DF1B041009D1DA8 /* CustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomField.swift; sourceTree = "<group>"; };
+		A69415321DF1B262009D1DA8 /* CustomBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBtn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,7 @@
 		A69415111DF0299B009D1DA8 /* MashBinSocial */ = {
 			isa = PBXGroup;
 			children = (
+				A694152B1DF1A8DC009D1DA8 /* Util */,
 				A69415281DF0553D009D1DA8 /* Model */,
 				A69415271DF05536009D1DA8 /* View */,
 				A69415261DF0552D009D1DA8 /* Controller */,
@@ -104,6 +115,10 @@
 		A69415271DF05536009D1DA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A69415291DF1A7FA009D1DA8 /* CustomView.swift */,
+				A694152E1DF1AC59009D1DA8 /* RoundedBtn.swift */,
+				A69415301DF1B041009D1DA8 /* CustomField.swift */,
+				A69415321DF1B262009D1DA8 /* CustomBtn.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -113,6 +128,14 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A694152B1DF1A8DC009D1DA8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A694152C1DF1A8FD009D1DA8 /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A694152A1DF1A7FA009D1DA8 /* CustomView.swift in Sources */,
 				A69415151DF0299B009D1DA8 /* SignInVC.swift in Sources */,
+				A694152F1DF1AC59009D1DA8 /* RoundedBtn.swift in Sources */,
+				A69415331DF1B262009D1DA8 /* CustomBtn.swift in Sources */,
+				A69415311DF1B041009D1DA8 /* CustomField.swift in Sources */,
 				A69415131DF0299B009D1DA8 /* AppDelegate.swift in Sources */,
+				A694152D1DF1A8FD009D1DA8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

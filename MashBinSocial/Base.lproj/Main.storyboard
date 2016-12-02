@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuW-E7-m4G">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuW-E7-m4G" customClass="CustomView" customModule="MashBinSocial" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MB_Compact Landscape_A (1)" translatesAutoresizingMaskIntoConstraints="NO" id="4bF-Tq-XjE">
@@ -49,7 +49,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.86508620689655169" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-8R-b5c">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-8R-b5c" customClass="RoundedBtn" customModule="MashBinSocial" customModuleProvider="target">
                                 <rect key="frame" x="110" y="182" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.21568627450980393" green="0.31372549019607843" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -80,23 +80,23 @@
                                     <constraint firstItem="CSd-Ns-WSK" firstAttribute="centerY" secondItem="SaU-ce-BhP" secondAttribute="centerY" id="xrL-7v-kj7"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="chY-uA-kTQ">
-                                <rect key="frame" x="33" y="322" width="258" height="136"/>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="chY-uA-kTQ">
+                                <rect key="frame" x="33" y="322" width="258" height="118"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OvX-wZ-8s0">
-                                        <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OvX-wZ-8s0" customClass="CustomField" customModule="MashBinSocial" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="258" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hn4-oN-qiw">
-                                        <rect key="frame" x="0.0" y="50" width="258" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hn4-oN-qiw" customClass="CustomField" customModule="MashBinSocial" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="41" width="258" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVg-lw-gAi">
-                                        <rect key="frame" x="0.0" y="100" width="258" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVg-lw-gAi" customClass="CustomBtn" customModule="MashBinSocial" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="258" height="36"/>
                                         <color key="backgroundColor" red="0.99607843137254903" green="0.8666666666666667" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                         <state key="normal" title="Sign In">
