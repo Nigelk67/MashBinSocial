@@ -10,6 +10,8 @@ import UIKit
 
 class CustomBtn: UIButton {
 
+    // Shadows and corners for the Sign In button:-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

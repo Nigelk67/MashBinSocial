@@ -10,6 +10,7 @@ import UIKit
 
 class RoundedBtn: UIButton {
 
+    //Shadowing for the FB button:-
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,7 +28,5 @@ class RoundedBtn: UIButton {
         layer.cornerRadius = self.frame.width / 2
         
     }
-    
-    
     
 }

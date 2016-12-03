@@ -10,6 +10,8 @@ import UIKit
 
 class CustomView: UIView {
 
+    //Creates shadowing for the header:-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
