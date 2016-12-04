@@ -38,6 +38,7 @@
 		A694152E1DF1AC59009D1DA8 /* RoundedBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedBtn.swift; sourceTree = "<group>"; };
 		A69415301DF1B041009D1DA8 /* CustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomField.swift; sourceTree = "<group>"; };
 		A69415321DF1B262009D1DA8 /* CustomBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBtn.swift; sourceTree = "<group>"; };
+		A69415341DF4513F009D1DA8 /* MashBinSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MashBinSocial.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,7 @@
 		A69415111DF0299B009D1DA8 /* MashBinSocial */ = {
 			isa = PBXGroup;
 			children = (
+				A69415341DF4513F009D1DA8 /* MashBinSocial.entitlements */,
 				A694152B1DF1A8DC009D1DA8 /* Util */,
 				A69415281DF0553D009D1DA8 /* Model */,
 				A69415271DF05536009D1DA8 /* View */,
@@ -175,6 +177,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = KUSD7MWQL4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -393,6 +400,7 @@
 			baseConfigurationReference = 41D46B9D13E8AB813927CE76 /* Pods-MashBinSocial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MashBinSocial/MashBinSocial.entitlements;
 				DEVELOPMENT_TEAM = KUSD7MWQL4;
 				INFOPLIST_FILE = MashBinSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -407,6 +415,7 @@
 			baseConfigurationReference = 2BD746165B9AE62300862709 /* Pods-MashBinSocial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MashBinSocial/MashBinSocial.entitlements;
 				DEVELOPMENT_TEAM = KUSD7MWQL4;
 				INFOPLIST_FILE = MashBinSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
