@@ -10,6 +10,8 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
+
 
 class SignInVC: UIViewController {
     
@@ -20,9 +22,16 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Checks to see if user has 'account':-
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            //If so, the Feed VC opens:-
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
+    }
+    
     //This authenticates with Facebook:-
     @IBAction func facebookBtnPressed(_ sender: Any) {
         
@@ -61,11 +70,19 @@ class SignInVC: UIViewController {
             } else {
                 
                 print("NIGE: Sucessful Firebase authentication")
+                //This to save the user details for future:-
+                if let user = user {
+                    
+                    self.completeSignIn(id: user.uid)
+                    
+                }
+                
             }
         })
         
     }
     
+    // Sign In via email/ password using Firebase. There's a lot more to do here, all the different error scenarios and also need pop up boxes to advise user:-
     @IBAction func signinBtnPressed(_ sender: Any) {
         
         if let email = emailField.text, let pwd = passwordField.text {
@@ -75,12 +92,20 @@ class SignInVC: UIViewController {
                     
                     print("NIGE: Email User authenticated with Firebase")
                     
+                    if let user = user {
+                        self.completeSignIn(id: user.uid)
+                    }
+                    
                 } else {
+                    //This creates a new user and logs in Firebase:-
                     FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
                         if error != nil {
                             print("NIGE: Unable to authenticate with Firebase using email")
                         } else {
                             print("NIGE: Successfully authenticated with Firebase")
+                            if let user = user {
+                                self.completeSignIn(id: user.uid)
+                            }
                             
                         }
                     })
@@ -88,8 +113,16 @@ class SignInVC: UIViewController {
             })
             
         }
-        
     }
+    
+    
+        func completeSignIn(id: String) {
+            
+            KeychainWrapper.standard.set(id, forKey: KEY_UID)
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+            
+        }
+        
 }
 
 
