@@ -103,6 +103,7 @@ class SignInVC: UIViewController {
                             print("NIGE: Unable to authenticate with Firebase using email")
                         } else {
                             print("NIGE: Successfully authenticated with Firebase")
+                            
                             if let user = user {
                                 self.completeSignIn(id: user.uid)
                             }
@@ -115,10 +116,11 @@ class SignInVC: UIViewController {
         }
     }
     
-    
+    //This creates the Keychain authentication for auto signin, adding a value to the Keychain, and then opens up the new FeedVC:-
         func completeSignIn(id: String) {
             
             KeychainWrapper.standard.set(id, forKey: KEY_UID)
+            
             performSegue(withIdentifier: "goToFeed", sender: nil)
             
         }

@@ -19,6 +19,8 @@
 		A69415311DF1B041009D1DA8 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415301DF1B041009D1DA8 /* CustomField.swift */; };
 		A69415331DF1B262009D1DA8 /* CustomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415321DF1B262009D1DA8 /* CustomBtn.swift */; };
 		A69415361DF4A8C3009D1DA8 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415351DF4A8C3009D1DA8 /* FeedVC.swift */; };
+		A69415381DF5B280009D1DA8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415371DF5B280009D1DA8 /* CircleView.swift */; };
+		A694153A1DF6FB7A009D1DA8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415391DF6FB7A009D1DA8 /* PostCell.swift */; };
 		CBD9FF9F2D0CBB63E000297E /* Pods_MashBinSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6582A7376951987EF5F1C8 /* Pods_MashBinSocial.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		A69415321DF1B262009D1DA8 /* CustomBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBtn.swift; sourceTree = "<group>"; };
 		A69415341DF4513F009D1DA8 /* MashBinSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MashBinSocial.entitlements; sourceTree = "<group>"; };
 		A69415351DF4A8C3009D1DA8 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		A69415371DF5B280009D1DA8 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		A69415391DF6FB7A009D1DA8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 				A694152E1DF1AC59009D1DA8 /* RoundedBtn.swift */,
 				A69415301DF1B041009D1DA8 /* CustomField.swift */,
 				A69415321DF1B262009D1DA8 /* CustomBtn.swift */,
+				A69415371DF5B280009D1DA8 /* CircleView.swift */,
+				A69415391DF6FB7A009D1DA8 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69415381DF5B280009D1DA8 /* CircleView.swift in Sources */,
 				A694152A1DF1A7FA009D1DA8 /* CustomView.swift in Sources */,
 				A69415151DF0299B009D1DA8 /* SignInVC.swift in Sources */,
 				A694152F1DF1AC59009D1DA8 /* RoundedBtn.swift in Sources */,
@@ -281,6 +288,7 @@
 				A69415311DF1B041009D1DA8 /* CustomField.swift in Sources */,
 				A69415131DF0299B009D1DA8 /* AppDelegate.swift in Sources */,
 				A694152D1DF1A8FD009D1DA8 /* Constants.swift in Sources */,
+				A694153A1DF6FB7A009D1DA8 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
