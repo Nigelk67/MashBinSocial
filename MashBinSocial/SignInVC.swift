@@ -58,7 +58,7 @@ class SignInVC: UIViewController {
         }
         
     }
-    //This authenticates with Firebase:-
+    //This authenticates with Firebase for the FAcebook signin:-
     func firebaseAuth(_ credential: FIRAuthCredential) {
         
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
@@ -71,9 +71,12 @@ class SignInVC: UIViewController {
                 
                 print("NIGE: Sucessful Firebase authentication")
                 //This to save the user details for future:-
+                
                 if let user = user {
                     
-                    self.completeSignIn(id: user.uid)
+                    let userData = ["provider": credential.provider]
+                    
+                    self.completeSignIn(id: user.uid, userData: userData)
                     
                 }
                 
@@ -93,7 +96,10 @@ class SignInVC: UIViewController {
                     print("NIGE: Email User authenticated with Firebase")
                     
                     if let user = user {
-                        self.completeSignIn(id: user.uid)
+                        
+                         let userData = ["provider": user.providerID]
+                        
+                        self.completeSignIn(id: user.uid, userData: userData)
                     }
                     
                 } else {
@@ -103,9 +109,13 @@ class SignInVC: UIViewController {
                             print("NIGE: Unable to authenticate with Firebase using email")
                         } else {
                             print("NIGE: Successfully authenticated with Firebase")
+                        
                             
                             if let user = user {
-                                self.completeSignIn(id: user.uid)
+                                
+                                let userData = ["provider": user.providerID]
+                                
+                                self.completeSignIn(id: user.uid, userData: userData)
                             }
                             
                         }
@@ -117,7 +127,9 @@ class SignInVC: UIViewController {
     }
     
     //This creates the Keychain authentication for auto signin, adding a value to the Keychain, and then opens up the new FeedVC:-
-        func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        
+            DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
             
             KeychainWrapper.standard.set(id, forKey: KEY_UID)
             
