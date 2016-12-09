@@ -74,6 +74,7 @@ class SignInVC: UIViewController {
                 
                 if let user = user {
                     
+                    //This saves userdata (see DataServices.swift file) into the FirebaseDb, and completes the sign in prcocess based on function at tne end:-
                     let userData = ["provider": credential.provider]
                     
                     self.completeSignIn(id: user.uid, userData: userData)
@@ -97,6 +98,7 @@ class SignInVC: UIViewController {
                     
                     if let user = user {
                         
+                        //This saves userdata (see DataServices.swift file) into the FirebaseDb, and completes the sign in prcocess based on function at tne end:-
                          let userData = ["provider": user.providerID]
                         
                         self.completeSignIn(id: user.uid, userData: userData)
@@ -112,7 +114,7 @@ class SignInVC: UIViewController {
                         
                             
                             if let user = user {
-                                
+                                //This saves userdata (see DataServices.swift file) into the FirebaseDb, and completes the sign in prcocess based on function at tne end:-
                                 let userData = ["provider": user.providerID]
                                 
                                 self.completeSignIn(id: user.uid, userData: userData)

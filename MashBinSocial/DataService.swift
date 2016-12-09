@@ -12,6 +12,7 @@ import Firebase
 //This refers to the top level URL from the Firebase project database (gets from the GoogleService_info.plist:-
 let DB_BASE = FIRDatabase.database().reference()
 
+//Makes this class global:-
 class DataService {
     
     static let ds = DataService()
@@ -32,8 +33,9 @@ class DataService {
         return _REF_USERS
     }
     
+    //This function adds a user id to the Firebase Db:-
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
-        
+        // This writes to the Firebase Db, passing in the User Id created by Firebase and also passes in the userData (in this case, where they signed in from:-
         REF_USERS.child(uid).updateChildValues(userData)
         
     }
