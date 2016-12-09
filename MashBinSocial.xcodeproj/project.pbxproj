@@ -22,6 +22,7 @@
 		A69415381DF5B280009D1DA8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415371DF5B280009D1DA8 /* CircleView.swift */; };
 		A694153A1DF6FB7A009D1DA8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69415391DF6FB7A009D1DA8 /* PostCell.swift */; };
 		A694153D1DF95577009D1DA8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A694153C1DF95577009D1DA8 /* DataService.swift */; };
+		A694153F1DFAE5C7009D1DA8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A694153E1DFAE5C6009D1DA8 /* Post.swift */; };
 		CBD9FF9F2D0CBB63E000297E /* Pods_MashBinSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6582A7376951987EF5F1C8 /* Pods_MashBinSocial.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		A69415371DF5B280009D1DA8 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		A69415391DF6FB7A009D1DA8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A694153C1DF95577009D1DA8 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		A694153E1DFAE5C6009D1DA8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		A69415281DF0553D009D1DA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A694153E1DFAE5C6009D1DA8 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				A69415381DF5B280009D1DA8 /* CircleView.swift in Sources */,
 				A694152A1DF1A7FA009D1DA8 /* CustomView.swift in Sources */,
 				A69415151DF0299B009D1DA8 /* SignInVC.swift in Sources */,
+				A694153F1DFAE5C7009D1DA8 /* Post.swift in Sources */,
 				A694152F1DF1AC59009D1DA8 /* RoundedBtn.swift in Sources */,
 				A69415331DF1B262009D1DA8 /* CustomBtn.swift in Sources */,
 				A694153D1DF95577009D1DA8 /* DataService.swift in Sources */,
