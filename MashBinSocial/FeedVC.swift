@@ -17,6 +17,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
+    // Global variable for the images to be downloaded to the cache:-
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         
         //Listeners - looks out for any changes in the posts section of the Db:-
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            
+            self.posts = [] //This line ensures there are no duplicated posts
+            
             //Breaks out the data into individual objects:-
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 //Returns each individual snap:-
@@ -64,8 +69,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         let post = posts[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
+                
+                cell.configureCell(post: post, img: img)
+                return cell
+                
+            } else {
+            
             cell.configureCell(post: post)
             return cell
+            }
             //For safety:-
         } else {
             return PostCell()
@@ -74,8 +88,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        //Check to make sure the user has selected an image:-
+        //Check to make sure the user has selected an image (as opposed to a video):-
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            //choose image:-
             imageAdd.image = image
             
         } else {
@@ -83,6 +98,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func addImagePressed(_ sender: Any) {
     
