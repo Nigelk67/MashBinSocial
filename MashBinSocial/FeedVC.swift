@@ -24,11 +24,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //Listeners - looks out for any changes in the posts section of the Db:-
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-            
+            //Breaks out the data into individual objects:-
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
+                //Returns each individual snap:-
                 for snap in snapshot {
                     print("SNAP: \(snap)")
+                    //Gets the value in the dictionary:-
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let post = Post(postKey: key, postData: postDict)
@@ -52,7 +53,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+        
+        //Refers to the PostCell file to return the data:-
+        let post = posts[indexPath.row]
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            cell.configureCell(post: post)
+            return cell
+            //For safety:-
+        } else {
+            return PostCell()
+        }
         
     }
     

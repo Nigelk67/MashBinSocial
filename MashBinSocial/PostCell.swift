@@ -17,12 +17,20 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likesLbl: UILabel!
     
 
+    var post: Post!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    
+    // To add the data from Firebase into the feed:-
+    func configureCell(post: Post) {
+        
+        self.post = post
+        self.caption.text = post.caption
+        self.likesLbl.text = "\(post.likes)"
+        //This is now used in cellForRow in the FeedVC.
+    }
 
 }
