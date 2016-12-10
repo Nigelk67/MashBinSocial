@@ -29,7 +29,7 @@ class PostCell: UITableViewCell {
         
         self.post = post
         self.caption.text = post.caption
-        self.likesLbl.text = "\(post.likes)"
+        self.likesLbl.text = "\(post.likes)" //String to an Int
         //This is now used in cellForRow in the FeedVC.
     }
 

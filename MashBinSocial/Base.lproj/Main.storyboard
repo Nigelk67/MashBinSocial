@@ -191,13 +191,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="95h-QT-S7y">
                                         <rect key="frame" x="9" y="5" width="272" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="zYb-Gx-Vcp" customClass="CircleView" customModule="MashBinSocial" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="zYb-Gx-Vcp" customClass="CircleView" customModule="MashBinSocial" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="50"/>
                                                 <color key="backgroundColor" red="0.2156862745" green="0.2784313725" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="CLA-iF-Lc4"/>
                                                     <constraint firstAttribute="width" constant="45" id="DHA-7D-tFF"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="CPB-u9-XSJ" appends="YES" id="fKc-pj-R3k"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add A Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qcn-H8-mJn" customClass="CustomField" customModule="MashBinSocial" customModuleProvider="target">
                                                 <rect key="frame" x="65" y="0.0" width="142" height="50"/>
@@ -346,11 +350,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageAdd" destination="zYb-Gx-Vcp" id="pHc-en-fC8"/>
                         <outlet property="tableView" destination="K0m-C1-6uo" id="sYr-eY-Qmo"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="qGs-vY-lVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmW-g8-pyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CPB-u9-XSJ">
+                    <connections>
+                        <action selector="addImagePressed:" destination="viO-oN-95e" id="NRg-86-o6S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="948.75" y="122.53521126760563"/>
         </scene>
