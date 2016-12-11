@@ -114,7 +114,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
     }
     
     @IBAction func postBtnPressed(_ sender: Any) {
-        
+        //Forces user to have a caption, using a 'guard' statement:-
         guard let caption = captionField.text, caption != "" else {
             print("NIGE: Caption must be entered")
             return
@@ -123,6 +123,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
             print("NIGE: Image must be selected")
             return
         }
+        
         //Converts image to image data to pass into Firebase (as a JPEG) & compressing it:-
         if let imgData = UIImageJPEGRepresentation(img, 0.2) {
             
@@ -133,20 +134,43 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpeg"
             
+            // This passes the unique image into Firebase Storage:-
             DataService.ds.REF_POST_IMAGES.child(imgUid).put(imgData, metadata: metaData) { (metaData, error) in
                 if error != nil {
                     print("NIGE: UNable to upload image to FB storage")
                 } else {
                     print("NIGE: Successful upload to FB Storage")
                     let downloadUrl = metaData?.downloadURL()?.absoluteString
+                    //Unwrap it for the function:-
+                    if let url = downloadUrl {
+                        self.postToFirebase(imgUrl: url)
+                    }
                 }
-                
                 
             }
             
         }
         
     }
+    //Create function to post to Firebase:-
+    func postToFirebase(imgUrl: String) {
+        let post: Dictionary<String, AnyObject> = [
+        "caption": captionField.text! as AnyObject,
+        "imageUrl": imgUrl as AnyObject,
+        "likes": 0 as AnyObject
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        //This clears out the fields (caption and image) ready for a new post:-
+        captionField.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
+    }
+    
    
     @IBAction func signInBtnPressed(_ sender: Any) {
         
