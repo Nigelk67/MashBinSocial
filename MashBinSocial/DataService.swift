@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import SwiftKeychainWrapper
 
 //This refers to the top level URL from the Firebase project database (gets from the GoogleService_info.plist:-
 let DB_BASE = FIRDatabase.database().reference()
@@ -38,6 +39,13 @@ class DataService {
     
     var REF_USERS: FIRDatabaseReference {
         return _REF_USERS
+    }
+    //To get the current user id:-
+    var REF_USER_CURRENT: FIRDatabaseReference {
+       // let uid = KeychainWrapper.stringForKey(KEY_UID)
+        let uid = KeychainWrapper.standard.string(forKey: KEY_UID)
+        let user = REF_USERS.child(uid!)
+        return user
     }
     
     var REF_POST_IMAGES: FIRStorageReference {

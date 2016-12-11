@@ -79,13 +79,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
             if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
                 
                 cell.configureCell(post: post, img: img)
-                return cell
-                
-            } else {
-            
+                } else {
             cell.configureCell(post: post)
-            return cell
             }
+            return cell
             //For safety:-
         } else {
             return PostCell()
@@ -143,6 +140,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
                     let downloadUrl = metaData?.downloadURL()?.absoluteString
                     //Unwrap it for the function:-
                     if let url = downloadUrl {
+                        //Call the function to create the Firebase post:-
                         self.postToFirebase(imgUrl: url)
                     }
                 }
@@ -152,14 +150,14 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         }
         
     }
-    //Create function to post to Firebase:-
+    //Create object to post to Firebase:-
     func postToFirebase(imgUrl: String) {
         let post: Dictionary<String, AnyObject> = [
         "caption": captionField.text! as AnyObject,
         "imageUrl": imgUrl as AnyObject,
         "likes": 0 as AnyObject
         ]
-        
+        // Posts object to Firebase, creating a unique post id:-
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(post)
         
