@@ -14,11 +14,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageAdd: CircleView!
+    @IBOutlet weak var captionField: CustomField!
+    
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     // Global variable for the images to be downloaded to the cache:-
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    
+    // To stop the default camera image being loaded as the 'image':-
+    var imageSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +75,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
+            //checks to see if you can get an img from the url:-
             if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
                 
                 cell.configureCell(post: post, img: img)
@@ -92,6 +98,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             //choose image:-
             imageAdd.image = image
+            imageSelected = true
             
         } else {
             print("NIGE: A valid image wasn't selected")
@@ -106,6 +113,40 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         
     }
     
+    @IBAction func postBtnPressed(_ sender: Any) {
+        
+        guard let caption = captionField.text, caption != "" else {
+            print("NIGE: Caption must be entered")
+            return
+        }
+        guard let img = imageAdd.image, imageSelected == true else {
+            print("NIGE: Image must be selected")
+            return
+        }
+        //Converts image to image data to pass into Firebase (as a JPEG) & compressing it:-
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            //This gives the image a unique id:-
+            let imgUid = NSUUID().uuidString
+            
+            //This lets Firebase Storage know what type of image you are passing in (jpeg):-
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            DataService.ds.REF_POST_IMAGES.child(imgUid).put(imgData, metadata: metaData) { (metaData, error) in
+                if error != nil {
+                    print("NIGE: UNable to upload image to FB storage")
+                } else {
+                    print("NIGE: Successful upload to FB Storage")
+                    let downloadUrl = metaData?.downloadURL()?.absoluteString
+                }
+                
+                
+            }
+            
+        }
+        
+    }
    
     @IBAction func signInBtnPressed(_ sender: Any) {
         

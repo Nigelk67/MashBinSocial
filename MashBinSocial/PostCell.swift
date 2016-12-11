@@ -36,7 +36,9 @@ class PostCell: UITableViewCell {
         //This sets the post Image to the cached image:-
         if img != nil {
             self.postImg.image = img
+            
         } else { //if the image is not in the cache, this downloads it:-
+            
                 let ref = FIRStorage.storage().reference(forURL: post.imageUrl)
                 ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
                     if error != nil {
