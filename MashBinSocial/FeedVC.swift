@@ -16,6 +16,15 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
     @IBOutlet weak var imageAdd: CircleView!
     @IBOutlet weak var captionField: CustomField!
     
+    @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var visualEffectsView: UIVisualEffectView!
+    
+    @IBOutlet weak var userName: CustomField!
+    
+    
+    //For the visual effect of the popup:-
+    var effect: UIVisualEffect!
+    
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
@@ -53,11 +62,14 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
                         
                     }
                 }
-                
             }
             //Refreshes the table:-
             self.tableView.reloadData()
         })
+        
+        //Sets the blur to 'off' when not using popup:-
+        effect = visualEffectsView.effect
+        visualEffectsView.effect = nil
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,6 +113,30 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
             print("NIGE: A valid image wasn't selected")
         }
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    //For the popUp box to pop up:-
+    func animateIn() {
+        self.view.addSubview(popUpView)
+        popUpView.center = self.view.center
+        popUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        popUpView.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            self.visualEffectsView.effect = self.effect
+            self.popUpView.alpha = 1
+            self.popUpView.transform = CGAffineTransform.identity
+        }
+        
+    }
+    //To animate the popUp box out:-
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.popUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.popUpView.alpha = 0
+            self.visualEffectsView.effect = nil })
+        { (success: Bool) in
+            self.popUpView.removeFromSuperview()
+        }
     }
     
     
@@ -180,5 +216,15 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINa
         performSegue(withIdentifier: "goToSignIn", sender: nil)
         
     }
+    //Button pressed to bring up the Settings PopUp:-
+    @IBAction func settingsBtnPressed(_ sender: Any) {
+        animateIn()
+    }
+    
+    //Save button pressed to close the Settings popoUp:-
+    @IBAction func saveBtnPressed(_ sender: Any) {
+        animateOut()
+    }
+    
     
 }
